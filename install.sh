@@ -17,5 +17,9 @@ then
   exit 255
 fi
 
+chmod +x cgi-bin/*
+chown www-data var/www/*
+chown www-data cgi-bin/*
+
 cp -a WWW /var/www
 cp -a cgi-bin /usr/lib/cgi-bin
