@@ -1,0 +1,71 @@
+#!/bin/bash
+LAT=$1
+LONG=$2
+cat <<EOF
+<Folder>
+<Placemark>
+<name>$3</name>
+<description> 
+<![CDATA[
+   $4
+   Format: $5
+   Base Station Name: $3
+   ]]>
+   </description>
+   <Point>
+   <coordinates>$LONG,$LAT,0</coordinates>
+  </Point>
+</Placemark>
+ <name>$3 Rings</name>
+<open>0</open>
+
+<Placemark>
+  <name>15-20mm</name>
+  <styleUrl>#sn_grn-pushpin</styleUrl>
+EOF
+./kmlcircle.py -v $LAT -h $LONG -r 5000 -s 50
+cat <<EOF
+  </Placemark>
+EOF
+
+cat <<EOF
+<Placemark>
+  <name>20-30mm</name>
+  <styleUrl>#sn_ylw-pushpin</styleUrl>
+EOF
+./kmlcircle.py -v $LAT -h $LONG -r 15000 -i 5001 -s 50
+cat <<EOF
+  </Placemark>
+EOF
+
+cat <<EOF
+<Placemark>
+  <name>30-40mm</name>
+  <styleUrl>#sn_blue-pushpin</styleUrl>
+EOF
+./kmlcircle.py -v $LAT -h $LONG -r 25000 -i 15001 -s 50
+cat <<EOF
+  </Placemark>
+EOF
+
+cat <<EOF
+<Placemark>
+  <name>40-45mm</name>
+  <styleUrl>#sn_purp-pushpin</styleUrl>
+EOF
+
+./kmlcircle.py -v $LAT -h $LONG -r 30000 -i 25001 -s 50
+cat <<EOF
+  </Placemark>
+EOF
+cat <<EOF
+<Placemark>
+  <name>30-50Km</name>
+  <styleUrl>#sn_red-pushpin</styleUrl>
+EOF
+
+./kmlcircle.py -v $LAT -h $LONG -r 50000 -i 30001 -s 50
+cat <<EOF
+  </Placemark>
+</Folder>
+EOF
