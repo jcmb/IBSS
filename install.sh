@@ -7,8 +7,9 @@ if ! type realpath &> /dev/null ; then
 fi
 
 APP_DIR=`dirname $0`
+APP_DIR=`realpath $APP_DIR`
 CURRENT_DIR=`realpath .`
-CURRENT_DIR=`dirname $CURRENT_DIR`
+#CURRENT_DIR=`dirname $CURRENT_DIR`
 echo $DIR $CURRENT_DIR
 
 if [ "$APP_DIR" != "$CURRENT_DIR" ] 
