@@ -12,7 +12,7 @@ HEADERS=`echo "$QUERY_STRING" | sed -n 's/^.*HEADERS=\([^&]*\).*$/\1/p' | sed "s
 echo -e "<h1>IBSS base station $BASE information for $USER of $USER_ORG</h1>\n"
 echo -e "<br>This test takes 15 seconds"
 # echo curl -f  --connect-timeout 10 -m 10  -H "Ntrip-Version: Ntrip/2.0" -H "User-Agent: NTRIP CURL_NTRIP_TEST/0.1" -u $USER:$PASS  http://$USER_ORG.ibss.trimbleos.com:2101/$BASE
-./NtripClient.py --V2 --HeaderFile ~/tmp/headers_$$  -f /tmp/st_$$   -m 10  -u $USER -p $PASS -b $BASE_ORG -o $USER_ORG $BASE
+./NtripClient.py --V2 --HeaderFile /tmp/headers_$$  -f /tmp/st_$$   -m 10  -u $USER -p $PASS -b $BASE_ORG -o $USER_ORG $BASE
 #echo "Result: $?"
 echo "<br><H2>Status:</h2><br>"
 perl -f ibss_mount.pl < /tmp/headers_$$
@@ -24,7 +24,7 @@ then
 
    if [ -s /tmp/st_$$ ]
    then
-      Size=`stat -c %s ~/tmp/st_$$`
+      Size=`stat -c %s /tmp/st_$$`
       echo "Base is sending data ($Size bytes)"
       rm /tmp/st_$$
    else
