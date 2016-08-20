@@ -10,7 +10,7 @@ APP_DIR=`dirname $0`
 APP_DIR=`realpath $APP_DIR`
 CURRENT_DIR=`realpath .`
 #CURRENT_DIR=`dirname $CURRENT_DIR`
-echo $DIR $CURRENT_DIR
+#echo $DIR $CURRENT_DIR
 
 if [ "$APP_DIR" != "$CURRENT_DIR" ] 
 then
@@ -30,3 +30,5 @@ chown www-data /usr/lib/cgi-bin/IBSS
 
 cp -a WWW/* /var/www/html/IBSS
 cp -a cgi-bin/* /usr/lib/cgi-bin/IBSS
+
+echo "System installed"
