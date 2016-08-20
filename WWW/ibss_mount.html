@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>Display's Status for a connection to a IBSS base</title>
+ </head>
+<body>
+
+<form action="cgi-bin/ibss_mount.sh" method="get">
+<table>
+<tr>
+<td>
+TCC Device ID:
+<td>
+<input type="text" name="USER" value="status"/>
+<tr>
+<td>
+TCC Organization:
+<td>
+<input type="text" name="USER_ORG" value="ntrip2"/>
+</tr>
+<tr>
+<td>
+TCC Password:
+<td>
+<input type="password" name="PASS" value="trimble"/>
+</tr>
+<tr>
+<td>
+Base:
+<td>
+<input type="text" name="BASE" value="BERTHOUD_2011"/>
+</tr>
+<tr>
+<td>
+Base Organization:
+<td>
+<input type="text" name="BASE_ORG" value="ibss"/>
+</tr>
+</table>
+
+<input type="hidden" name="HEADERS" value=""/>
+
+<input type="submit" value="Submit" />
+</form>
+</body>
+</html>
