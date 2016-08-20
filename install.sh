@@ -19,7 +19,7 @@ then
 fi
 
 chmod +x cgi-bin/*
-chown www-data www/*
+chown www-data WWW/*
 chown www-data cgi-bin/*
 
 mkdir -p /var/www/html/IBSS
@@ -28,5 +28,5 @@ mkdir -p /usr/lib/cgi-bin/IBSS
 chown www-data /var/www/html/IBSS
 chown www-data /usr/lib/cgi-bin/IBSS
 
-cp -a WWW/ /var/www/html/IBSS
-cp -a cgi-bin/ /usr/lib/cgi-bin/IBSS
+cp -a WWW/* /var/www/html/IBSS
+cp -a cgi-bin/* /usr/lib/cgi-bin/IBSS
