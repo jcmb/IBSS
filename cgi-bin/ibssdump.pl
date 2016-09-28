@@ -35,7 +35,7 @@ my $base="";
 print <<'EOF';
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/jquery.tablesorter.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/style.css"></link>
+<link rel="stylesheet" type="text/css" href="/css/style.css"></link>
 <script>
 $(document).ready(function()
 {
@@ -88,7 +88,7 @@ while (<>) {
 	      $base=$mount;
 		}
 	       
-           print ("<a href=\"http://trimbletools.com/cgi-bin/ibss_mount.sh?USER=". $user. "&USER_ORG=".$user_org. "&PASS=".$pass."&BASE_ORG=".$base_org."&BASE=".$base."&HEADERS=\">".$mount);
+           print ("<a href=\"/cgi-bin/IBSS/ibss_mount.sh?USER=". $user. "&USER_ORG=".$user_org. "&PASS=".$pass."&BASE_ORG=".$base_org."&BASE=".$base."&HEADERS=\">".$mount);
            #status&USER_ORG=ntrip2&PASS=trimble&BASE=BERTHOUD&BASE_ORG=ntrip2&HEADERS=">$mount
            printf("</TD>\n");
            printf("   <TD> $id</TD>\n");
