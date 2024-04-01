@@ -13,7 +13,7 @@ RAW=`echo "$QUERY_STRING" | sed -n 's/^.*RAWS=\([^&]*\).*$/\1/p' | sed "s/%20/ /
 #PASS=password
 
 echo -e "<h1>NTRIP Table information for $USER of $USER_ORG</h1>\n"
-curl -f -D /tmp/headers_$$ -o /tmp/st_$$ --connect-timeout 10 -m 300  -H "Ntrip-Version: Ntrip/2.0" -H "User-Agent: NTRIP CURL_NTRIP_TEST/0.1" -u $USER:$PASS  https://$USER_ORG.ibss.trimbleos.com:52101/
+curl -f --silent -D /tmp/headers_$$ -o /tmp/st_$$ --connect-timeout 10 -m 300  -H "Ntrip-Version: Ntrip/2.0" -H "User-Agent: NTRIP CURL_NTRIP_TEST/0.1" -u $USER:$PASS  https://$USER_ORG.ibss.trimbleos.com:52101/
 RES=$?
 #echo "Result: $?"
 #stat /tmp/st_$$
@@ -46,7 +46,7 @@ then
    echo "</pre>"
 fi
 
-rm headers_$$
+rm /tmp/headers_$$
 echo "</body></html>"
 #echo "<pre>";
 rm /tmp/st_$$
