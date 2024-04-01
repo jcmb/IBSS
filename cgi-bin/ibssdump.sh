@@ -5,7 +5,7 @@ USER=`echo "$QUERY_STRING" | sed -n 's/^.*USER=\([^&]*\).*$/\1/p' | sed "s/%20/ 
 USER_ORG=`echo "$QUERY_STRING" | sed -n 's/^.*USER_ORG=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
 PASS=`echo "$QUERY_STRING" | sed -n 's/^.*PASS=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
 HEADERS=`echo "$QUERY_STRING" | sed -n 's/^.*HEADERS=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
-RAW=`echo "$QUERY_STRING" | sed -n 's/^.*RAWS=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
+RAW=`echo "$QUERY_STRING" | sed -n 's/^.*RAW=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
 
 #USER=status
 #USER_ORG=ntrip3
