@@ -7,7 +7,14 @@ BASE_ORG=`echo "$QUERY_STRING" | sed -n 's/^.*BASE_ORG=\([^&]*\).*$/\1/p' | sed 
 PASS=`echo "$QUERY_STRING" | sed -n 's/^.*PASS=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
 BASE=`echo "$QUERY_STRING" | sed -n 's/^.*BASE=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
 HEADERS=`echo "$QUERY_STRING" | sed -n 's/^.*HEADERS=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
+RAW=`echo "$QUERY_STRING" | sed -n 's/^.*RAW=\([^&]*\).*$/\1/p' | sed "s/%20/ /g"`
 
+#USER=status
+#USER_ORG=ntrip3
+#BASE_ORG=ntrip3
+#BASE=Test_Server_1
+#HEADERS=1
+#RAW=1
 
 echo -e "<h1>IBSS base station $BASE information for $USER of $USER_ORG</h1>\n"
 echo -e "<br>This test takes 15 seconds"
@@ -35,11 +42,20 @@ fi
 if [ $HEADERS ]
 then
    echo "<br><H2>Headers</h2><pre>"
-   cat headers_$$
+   cat /tmp/headers_$$
    echo "</pre>"
 fi
 
 rm /tmp/headers_$$
+
+if [ $RAW ]
+then
+   echo "<br><H2>RAW</h2><pre>"
+   cat /tmp/st_$$
+   echo "</pre>"
+fi
+
 echo "</body></html>"
 #echo "<pre>";
 #cat ~/tmp/st_$$
+rm  /tmp/st_$$
