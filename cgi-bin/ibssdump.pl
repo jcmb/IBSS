@@ -1,6 +1,10 @@
 #! /usr/bin/perl
 use strict;
 
+use Data::Dumper;
+
+
+
 
 $/ ="\r\n"; #The NTRIP source tables are CR/LF
 
@@ -66,6 +70,7 @@ printf("   <th> Login</th>\n");
 printf("   <th> Fee</th>\n");
 #printf("   <th> bitrate</th>\n");
 printf("   <th> Misc</th>\n");
+printf("   <th> #Fields</th>\n");
 printf("</tr></thead><tbody>\n");
 
 while (<>) {
@@ -74,7 +79,13 @@ while (<>) {
    if ($skipped_header) {
        if ($_ ne "ENDSOURCETABLE" ) {
         printf("<tr>\n");
-         ($type,$mount,$id,$format,$format_details,$carrier,$nav,$network,$country,$lat,$long,$nmea,$solution,$generator,$comp,$authentication,$fee,$bitrate,$misc) = split (/;/);
+        ($type,$mount,$id,$format,$format_details,$carrier,$nav,$network,$country,$lat,$long,$nmea,$solution,$generator,$comp,$authentication,$fee,$bitrate,$misc) = split (/;/,$_,-1);
+        my @fields = split(';', $_,  -1);
+#        print (@fields[0]);
+#        print Dumper(\@fields);
+
+        my $num_fields = scalar @fields;
+
         if ($type eq "STR") {
    #        printf("   <TD>$type</TD>\n");
            printf("   <TD> ");
@@ -151,6 +162,8 @@ while (<>) {
            printf("</TD>\n");
    #        printf("   <TD> $bitrate</TD>\n");
            printf("   <TD> $misc</TD>\n");
+           printf("   <TD> $num_fields</TD>\n");
+
            printf("</tr>\n");
    #        print"$type;$mount;$id;$format;$format_details;$carrier;$nav;$network;$country;$lat;$long;$nmea;$solution;$generator;$comp;$authentication;$fee;$bitrate;$misc\n";
             }
