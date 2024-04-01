@@ -31,7 +31,7 @@ my $pass=shift @ARGV;
 my $base_org="";
 my $base="";
 
-#print "<BODY>\n";                                                                                                                             
+#print "<BODY>\n";
 print <<'EOF';
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/jquery.tablesorter.min.js"></script>
@@ -78,16 +78,16 @@ while (<>) {
         if ($type eq "STR") {
    #        printf("   <TD>$type</TD>\n");
            printf("   <TD> ");
-	   if ( $mount =~ /(.*)-\((.*)\)/) {
-#	       print "Found org in mount" . $2;
-	       $base=$1;
-	       $base_org=$2;
-		}
-     	   else {
-	      $base_org=$user_org;
-	      $base=$mount;
-		}
-	       
+       if ( $mount =~ /(.*)-\((.*)\)/) {
+#          print "Found org in mount" . $2;
+           $base=$1;
+           $base_org=$2;
+        }
+           else {
+          $base_org=$user_org;
+          $base=$mount;
+        }
+
            print ("<a href=\"/cgi-bin/IBSS/ibss_mount.sh?USER=". $user. "&USER_ORG=".$user_org. "&PASS=".$pass."&BASE_ORG=".$base_org."&BASE=".$base."&HEADERS=\">".$mount);
            #status&USER_ORG=ntrip2&PASS=trimble&BASE=BERTHOUD&BASE_ORG=ntrip2&HEADERS=">$mount
            printf("</TD>\n");
@@ -96,14 +96,17 @@ while (<>) {
    #        printf("   <TD> $format_details</TD>\n");
    #        printf("   <TD> $carrier</TD>\n");
            printf("   <TD> ");
-           if ($carrier == "0") {
+           if ($carrier eq "0") {
               print "Code Only"
               }
-           elsif ($carrier == "1") {
+           elsif ($carrier eq "1") {
               print "L1"
               }
-           elsif ($carrier == "2") {
+           elsif ($carrier eq "2") {
               print "L1/L2"
+              }
+           elsif ($carrier eq "3") {
+              print "L1/L2/L5"
               }
            else {
               print "Unknown $carrier"
@@ -118,15 +121,15 @@ while (<>) {
            printf("   <TD> $long</TD>\n");
            printf("   <TD> ");
 
-           if ($nmea == "0") { print "Must Not Send NMEA"}
-           elsif ($nmea == "1") { print "Must Send NMEA" }
+           if ($nmea eq "0") { print "Must Not Send NMEA"}
+           elsif ($nmea eq "1") { print "Must Send NMEA" }
            else { print "Unknown $nmea" }
 
            printf("</TD>\n");
            printf("   <TD> ");
 
-           if ($solution == "0") { print "Single base" }
-           elsif ($solution == "1") {print "Network"}
+           if ($solution eq "0") { print "Single base" }
+           elsif ($solution eq "1") {print "Network"}
            else {print "Unknown $solution"}
 
            printf("</TD>\n");
@@ -134,9 +137,9 @@ while (<>) {
 #          printf("   <TD> $comp</TD>\n");
            printf("   <TD> ");
 
-           if ($authentication == "N") {print "No"}
-           elsif ( $authentication ==  "B") {print "Required"}
-           elsif ( $authentication ==  "D") {print "Digest"}
+           if ($authentication eq "N") {print "No"}
+           elsif ( $authentication eq  "B") {print "Required"}
+           elsif ( $authentication eq  "D") {print "Digest"}
            else {print "Unknown $authentication"}
 
            printf("</TD>\n");
