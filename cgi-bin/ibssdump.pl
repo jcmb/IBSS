@@ -170,7 +170,8 @@ $(document).ready(function()
    console.log("In ready");
    console.log($("#Mounts"));
    $("#Mounts").tablesorter({"theme": "blue"});
-};
+}
+);
 </script>
 EOF
 
