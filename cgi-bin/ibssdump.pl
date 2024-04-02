@@ -36,18 +36,6 @@ my $base_org="";
 my $base="";
 
 #print "<BODY>\n";
-print <<'EOF';
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="/jquery.tablesorter.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/style.css"></link>
-<script>
-$(document).ready(function()
-{
-    $("#Mounts").tablesorter();
-    }
-);
-</script>
-EOF
 
 print "<TABLE BORDER=1  id=\"Mounts\" class=\"tablesorter\">\n";
 printf("<thead><tr>\n");
@@ -161,7 +149,7 @@ while (<>) {
 
            printf("</TD>\n");
    #        printf("   <TD> $bitrate</TD>\n");
-           printf("   <TD> $misc</TD>\n");
+           printf("   <TD> $fields[$num_fields-1]</TD>\n");
            printf("   <TD> $num_fields</TD>\n");
 
            printf("</tr>\n");
@@ -175,4 +163,14 @@ while (<>) {
    }
 
 print "</tbody></TABLE>\n";
+print <<'EOF';
+<script>
+$(document).ready(function()
+{
+    $("#Mounts").tablesorter();
+    }
+);
+</script>
+EOF
+
 
