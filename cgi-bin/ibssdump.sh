@@ -1,7 +1,7 @@
 #! /bin/bash
 echo -e "Content-type: text/html\r\n\r\n"
 
-echo  <<EOF
+cat  <<EOF
 <html><head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/jquery.tablesorter.min.js"></script>
