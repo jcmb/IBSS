@@ -3,9 +3,11 @@ echo -e "Content-type: text/html\r\n\r\n"
 
 cat  <<EOF
 <html><head>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="/jquery.tablesorter.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="/IBSS/jquery.tablesorter.min.js"></script>
+<script src="/IBSS/jquery.tablesorter.widgets.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/theme.blue.css">
+<link rel="stylesheet" type="text/css" href="/css/tcui-styles.css">
 <title>NTRIP Table information</title></head>
 <body class="page">
 <div class="container clearfix">
@@ -67,6 +69,6 @@ then
 fi
 
 rm /tmp/headers_$$
-echo "</div></div></div></div></body></html>"
+echo "</div></div></div></body></html>"
 #echo "<pre>";
 rm /tmp/st_$$

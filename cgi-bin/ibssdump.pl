@@ -167,8 +167,9 @@ print <<'EOF';
 <script>
 $(document).ready(function()
 {
-    $("#Mounts").tablesorter();
-    }
+   console.log("In ready");
+   console.log($("#Mounts"));
+   $("#Mounts").tablesorter({"theme": "blue"});
 );
 </script>
 EOF
