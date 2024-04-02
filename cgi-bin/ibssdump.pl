@@ -143,8 +143,8 @@ while (<>) {
 
            printf("</TD>\n");
            printf("   <TD> ");
-           if ($fee == "N") {print "No"}
-           elsif ($fee == "Y") {print "Yes"}
+           if ($fee eq "N") {print "No"}
+           elsif ($fee eq "Y") {print "Yes"}
            else {print "Unknown $fee"}
 
            printf("</TD>\n");
